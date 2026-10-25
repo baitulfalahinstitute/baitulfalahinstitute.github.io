@@ -506,6 +506,8 @@
 
     <!-- ================= JAVASCRIPT ENGINE ================= -->
     <script>
+        const DEFAULT_SYNC_URL = "https://script.google.com/macros/s/AKfycbyguY4CAEgRoGGDXIYoyAWNvfoa8D3558ah-s_rBQ1Koko9vk0fMOBXt0HHX5ZYzgag/exec";
+
         const DEFAULT_PACKAGES = [
             { id: "PKG-01", name: "নাজেরা ও হিফজ বিভাগ: প্রথম বর্ষ সেট", target: "অভিভাবক ও মাদরাসা", cost: 450, retail: 750, wholesale: 600, comm: 50 },
             { id: "PKG-02", name: "নাজেরা ও হিফজ বিভাগ: দ্বিতীয় বর্ষ সেট", target: "অভিভাবক ও মাদরাসা", cost: 450, retail: 750, wholesale: 600, comm: 50 },
@@ -553,8 +555,10 @@
             reports: [],
             packages: DEFAULT_PACKAGES,
             books: generate49Books(),
-            settings: { url: "", key: "bfp-secret-2026", pins: { director: "1234", manager: "2222", officer1: "3333", officer2: "4444" } }
+            settings: { url: DEFAULT_SYNC_URL, key: "bfp-secret-2026", pins: { director: "1234", manager: "2222", officer1: "3333", officer2: "4444" } }
         };
+
+        if (!DB.settings.url) DB.settings.url = DEFAULT_SYNC_URL;
 
         function saveDB() {
             localStorage.setItem('BFP_OFFICE_DB', JSON.stringify(DB));
@@ -900,7 +904,7 @@
             renderStock();
             renderLeads();
             renderReports();
-            document.getElementById('cfg-url').value = DB.settings.url || '';
+            document.getElementById('cfg-url').value = DB.settings.url || DEFAULT_SYNC_URL;
             document.getElementById('cfg-key').value = DB.settings.key || 'bfp-secret-2026';
         }
     </script>
