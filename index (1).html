@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বায়তুল ফালাহ প্রকাশনী | আদর্শ শিক্ষা ব্যবস্থার মাধ্যমে আদর্শ মানুষ গড়া</title>
+    <meta name="description" content="বায়তুল ফালাহ প্রকাশনী — হিফজের ক্ষতি না করে প্রতিদিন মাত্র ২০ মিনিটে সাধারণ পড়াশোনা এগিয়ে রাখার বইয়ের বিশেষ কারিকুলাম। হিফজ শেষে সরাসরি ৭ম শ্রেণির প্রস্তুতি।">
+    
+    <!-- Tailwind CSS & Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#1e3a8a',      /* প্রকাশনীর জন্য আলাদা রয়্যাল ব্লু ও টিল থিম */
+                        brandDark: '#0f172a',
+                        accent: '#d97706',     /* গোল্ডেন অ্যাম্বার */
+                        accentLight: '#fef3c7'
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- ================= CONFIG (প্রকাশনীর নিজস্ব তথ্য এখানে বসাবেন) ================= -->
+    <script>
+        const CONFIG = {
+            pubName: "বায়তুল ফালাহ প্রকাশনী",
+            whatsappNumber: "8801600316787", // প্রকাশনীর হোয়াটসঅ্যাপ নম্বর (880 সহ)
+            phoneDisplay: "০১৬০০-৩১৬৭৮৭",    // ওয়েবসাইটে দেখানোর নম্বর
+            // বইয়ের তালিকা আসে ব্যবস্থাপনা শিটের 'বইয়ের তালিকা' ট্যাব থেকে (এই পাবলিক ফাইলের মাধ্যমে)
+            booksSheetId: "1b31ieSN5Kc7H14kW-9WHc1El3FRCOsGTodk5wIm2Z3U",
+            orderFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe8UyIDTAoaU8IB73u_j5EM7zjCd4rLb-EqiCAtMW0wp8G_5w/viewform",
+            packages: [
+                { id: 1, title: "নাজেরা ও হিফজ বিভাগ: প্রথম বর্ষ সেট", category: "year", target: "অভিভাবক ও মাদরাসা", books: "আমার প্রথম পাঠ ও ১ম বর্ষের নির্ধারিত সকল বিষয়ের খণ্ডসমূহ", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "মাদরাসার জন্য পাইকারি ছাড়", badge: "১ম বর্ষ" },
+                { id: 2, title: "নাজেরা ও হিফজ বিভাগ: দ্বিতীয় বর্ষ সেট", category: "year", target: "অভিভাবক ও মাদরাসা", books: "আমার দ্বিতীয় পাঠ ও ২য় বর্ষের নির্ধারিত সকল বিষয়ের খণ্ডসমূহ", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "মাদরাসার জন্য পাইকারি ছাড়", badge: "২য় বর্ষ" },
+                { id: 3, title: "নাজেরা ও হিফজ বিভাগ: তৃতীয় বর্ষ সেট", category: "year", target: "অভিভাবক ও মাদরাসা", books: "আমার তৃতীয় পাঠ ও ৩য় বর্ষের নির্ধারিত সকল বিষয়ের খণ্ডসমূহ", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "মাদরাসার জন্য পাইকারি ছাড়", badge: "৩য় বর্ষ" },
+                { id: 4, title: "নাজেরা ও হিফজ বিভাগ: চতুর্থ বর্ষ সেট", category: "year", target: "অভিভাবক ও মাদরাসা", books: "আমার চতুর্থ পাঠ ও ৪র্থ বর্ষের নির্ধারিত সকল বিষয়ের খণ্ডসমূহ", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "মাদরাসার জন্য পাইকারি ছাড়", badge: "৪র্থ বর্ষ" },
+                { id: 5, title: "নাজেরা ও হিফজ বিভাগ: পঞ্চম বর্ষ সেট", category: "year", target: "অভিভাবক ও মাদরাসা", books: "আমার পঞ্চম পাঠ ও ৫ম বর্ষের নির্ধারিত সকল বিষয়ের খণ্ডসমূহ", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "মাদরাসার জন্য পাইকারি ছাড়", badge: "৫ম বর্ষ" },
+                { id: 6, title: "নাজেরা ও হিফজ বিভাগ: ষষ্ঠ বর্ষ সেট", category: "year", target: "অভিভাবক ও মাদরাসা", books: "আমার ষষ্ঠ পাঠ ও ৬ষ্ঠ বর্ষের নির্ধারিত সকল বিষয়ের খণ্ডসমূহ (৭ম শ্রেণির পূর্ণ প্রস্তুতি)", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "মাদরাসার জন্য পাইকারি ছাড়", badge: "৬ষ্ঠ বর্ষ" },
+                { id: 7, title: "স্পোকেন অ্যারাবিক ও আরবি ওয়ার্কবুক সেট", category: "subject", target: "অভিভাবক", books: "লিসানুল কুরআন (আরবি ভাষা) সিরিজের খণ্ডসমূহ", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "আলোচনা সাপেক্ষে", badge: "বিষয়ভিত্তিক" },
+                { id: 8, title: "স্পোকেন ইংলিশ ও ইংরেজি ওয়ার্ড বুক সেট", category: "subject", target: "অভিভাবক", books: "স্পোকেন ইংলিশ সিরিজ ও ইংরেজি ভোকাবুলারি (ওয়ার্ড বুক)-এর খণ্ডসমূহ", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "আলোচনা সাপেক্ষে", badge: "বিষয়ভিত্তিক" },
+                { id: 9, title: "লিটল ইঞ্জিনিয়ার (প্রকৌশল ও প্রযুক্তি সেট)", category: "subject", target: "অভিভাবক", books: "প্রকৌশল ও প্রযুক্তি বিষয়ের বই: বিদ্যুৎ, সার্কিট, রোবটিক্স ও প্রোগ্রামিং", retailPrice: "নির্ধারণ বাকি", wholesalePrice: "আলোচনা সাপেক্ষে", badge: "প্রযুক্তি সিরিজ" },
+                { id: 10, title: "মাদরাসার জন্য পূর্ণ সেট", category: "madrasa", target: "মাদরাসা (বাল্ক অর্ডার)", books: "১ম থেকে ৬ষ্ঠ বর্ষের সকল সিরিজের সব বইয়ের প্যাকেজ", retailPrice: "প্রযোজ্য নয়", wholesalePrice: "পাইকারি মূল্যে (যোগাযোগ করুন)", badge: "মাদরাসা স্পেশাল" }
+            ],
+            demos: [
+                { subject: "আমার প্রথম পাঠ (বাংলা, ইংরেজি ও গণিত)", desc: "NCTB-র আলোকে মাদরাসা-উপযোগী ভাষায় রচিত ১ম অধ্যায়ের নমুনা", pdfUrl: "#demo-bangla" },
+                { subject: "লিসানুল কুরআন (আরবি ভাষা)", desc: "আল আরবিয়্যাতু ও এসো আরবি শিখি-এর সমন্বিত পাঠের নমুনা", pdfUrl: "#demo-arabic" },
+                { subject: "স্পোকেন ইংলিশ ও ইংরেজি ভোকাবুলারি", desc: "দৈনিক ২০ মিনিটের কথোপকথন ও শব্দভান্ডার পাঠের নমুনা", pdfUrl: "#demo-english" },
+                { subject: "লিটল ইঞ্জিনিয়ার (প্রকৌশল ও প্রযুক্তি)", desc: "সার্কিট, রোবটিক্স ও প্রযুক্তির সহজ বাংলা পাঠের নমুনা", pdfUrl: "#demo-tech" }
+            ]
+        };
+    </script>
+
+    <!-- ================= TOP BAR & NAVBAR ================= -->
+    <div class="bg-brandDark text-white text-sm py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <p class="font-medium">📚 ভিশন: আদর্শ শিক্ষা ব্যবস্থার মাধ্যমে আদর্শ মানুষ গড়া</p>
+            <div class="flex items-center gap-4">
+                <span>📞 হেল্পলাইন: <strong id="top-phone"></strong></span>
+                <a href="#sample-form" class="bg-accent text-white px-3 py-0.5 rounded text-xs font-semibold hover:bg-amber-500 transition">মাদরাসার নমুনা বই</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-lg bg-brand text-white flex items-center justify-center font-bold text-2xl shadow">ব</div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-brand leading-none">বায়তুল ফালাহ প্রকাশনী</h1>
+                    <p class="text-xs text-slate-500 mt-1">হিফজ শিক্ষার্থীদের সমন্বিত পাঠ্যক্রম ও প্রকাশনা</p>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-slate-700">
+                <a href="#method" class="hover:text-brand">২০ মিনিটের পদ্ধতি</a>
+                <a href="#series" class="hover:text-brand">বইয়ের সিরিজ</a>
+                <a href="#packages" class="hover:text-brand">১০টি প্যাকেজ</a>
+                <a href="#demo" class="hover:text-brand">ডেমো পিডিএফ</a>
+                <a href="#sample-form" class="hover:text-brand">মাদরাসার নমুনা সেট</a>
+                <a href="#faq" class="hover:text-brand">প্রশ্নোত্তর</a>
+            </nav>
+            <a id="header-order" href="#packages" target="_blank" class="bg-brand hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow transition">
+                অর্ডার করুন
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-bg text-white py-16 md:py-24 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-center">
+            <div class="md:col-span-7 space-y-6">
+                <span class="inline-block bg-accent/20 border border-accent text-accentLight px-4 py-1 rounded-full text-sm font-semibold">
+                    অভিভাবকদের সবচেয়ে বড় দুশ্চিন্তার সমাধান
+                </span>
+                <h2 class="text-3xl md:text-5xl font-bold leading-tight">
+                    “হিফজ করতে গিয়ে সন্তানের সাধারণ পড়াশোনায় বড় গ্যাপ পড়ে যাবে না তো?”
+                </h2>
+                <p class="text-slate-200 text-lg leading-relaxed">
+                    কুরআন মাজিদ হিফজকে সর্বোচ্চ গুরুত্ব দিয়ে প্রতিদিন প্রতি বিষয়ে <strong>মাত্র ২০ মিনিটের</strong> বিশেষ পাঠপদ্ধতি। হিফজ শেষ করে একজন শিক্ষার্থী যেন কোনো গ্যাপ ছাড়াই সরাসরি <strong>৭ম শ্রেণিতে</strong> (বিজ্ঞান, বাণিজ্য, মানবিক বা কওমি কিতাব বিভাগে) ভর্তি হতে পারে।
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#packages" class="bg-accent hover:bg-amber-500 text-white px-6 py-3.5 rounded-xl font-bold text-base shadow-lg transition flex items-center gap-2">
+                        📦 ১০টি প্যাকেজ দেখুন
+                    </a>
+                    <a href="#demo" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-6 py-3.5 rounded-xl font-bold text-base transition">
+                        📄 ফ্রি ডেমো পিডিএফ ডাউনলোড
+                    </a>
+                </div>
+            </div>
+
+            <!-- Roadmap Card -->
+            <div class="md:col-span-5 bg-white text-slate-800 p-6 md:p-8 rounded-2xl shadow-2xl border-t-4 border-accent">
+                <h3 class="text-xl font-bold text-brand mb-4 flex items-center gap-2">
+                    🎯 হিফজ থেকে ৭ম শ্রেণির রোডম্যাপ
+                </h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex gap-3 items-start">
+                        <span class="w-7 h-7 rounded-full bg-blue-100 text-brand font-bold flex items-center justify-center shrink-0">১</span>
+                        <div>
+                            <strong class="block text-base">মূল ফোকাস কুরআন হিফজ</strong>
+                            দিনের সিংহভাগ সময় হিফজেই থাকবে, কোনো বাড়তি চাপ পড়বে না।
+                        </div>
+                    </li>
+                    <li class="flex gap-3 items-start">
+                        <span class="w-7 h-7 rounded-full bg-blue-100 text-brand font-bold flex items-center justify-center shrink-0">২</span>
+                        <div>
+                            <strong class="block text-base">প্রতিদিন মাত্র ২০ মিনিটের পাঠ</strong>
+                            বাংলা, ইংরেজি, গণিত, আরবি ও প্রযুক্তি—প্রতিটি পাঠ ২০ মিনিটেই শেষ করার উপযোগী।
+                        </div>
+                    </li>
+                    <li class="flex gap-3 items-start">
+                        <span class="w-7 h-7 rounded-full bg-blue-100 text-brand font-bold flex items-center justify-center shrink-0">৩</span>
+                        <div>
+                            <strong class="block text-base">১ম থেকে ৬ষ্ঠ শ্রেণির পূর্ণ ভিত্তি</strong>
+                            ৬ বর্ষে ৬টি সেট শেষ করলে ৭ম শ্রেণির জেনারেল ও কিতাব উভয় লাইনের দরজা খোলা থাকবে।
+                        </div>
+                    </li>
+                </ul>
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span>✅ প্রাণীর ছবিমুক্ত ও সুদের হিসাবমুক্ত</span>
+                    <span id="hero-total">✅ বিষয়ভিত্তিক সিরিজ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 20 MINUTE METHOD & 6 SERIES ================= -->
+    <section id="method" class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-brand font-bold text-sm uppercase tracking-wider">বায়তুল ফালাহ প্রকাশনীর বিশেষত্ব</span>
+            <h2 class="text-3xl font-bold text-slate-900 mt-1">কেন "দৈনিক ২০ মিনিট" পাঠপদ্ধতি এত কার্যকর?</h2>
+            <p class="text-slate-600 mt-3">
+                সাধারণ স্কুলের বই হিফজ শিক্ষার্থীদের জন্য অনেক বড় ও সময়সাপেক্ষ। তাই আমরা ১ম থেকে ৬ষ্ঠ শ্রেণির মূল বিষয়বস্তুকে <span id="series-count">কয়েকটি</span> সিরিজে এমনভাবে সাজিয়েছি যেন একজন শিক্ষার্থী প্রতিদিন মাত্র ২০ মিনিট সময় দিয়েই তা আয়ত্ত করতে পারে।
+            </p>
+        </div>
+
+        <div id="series" class="grid md:grid-cols-3 gap-6">
+            <p id="series-loading" class="md:col-span-3 text-center text-slate-500 py-6">বইয়ের তালিকা লোড হচ্ছে...</p>
+        </div>
+    </section>
+
+    <!-- ================= 10 PACKAGES SECTION ================= -->
+    <section id="packages" class="py-16 px-4 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">সাশ্রয়ী প্যাকেজসমূহ</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2">আমাদের ১০টি বিশেষ প্যাকেজ</h2>
+                <p class="text-slate-600 mt-2">
+                    সব বই একসাথে কেনার প্রয়োজন নেই! আপনার সন্তান যে বর্ষে পড়ছে, শুধু সেই বর্ষের সেটটি নিন। আর মাদরাসার জন্য রয়েছে পাইকারি মূল্যে পূর্ণ সেট।
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button onclick="filterPackages('all')" class="pkg-tab bg-brand text-white px-4 py-2 rounded-lg text-sm font-semibold transition" id="tab-all">সব প্যাকেজ (১০টি)</button>
+                <button onclick="filterPackages('year')" class="pkg-tab bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold border transition" id="tab-year">বর্ষভিত্তিক সেট (১ম–৬ষ্ঠ বর্ষ)</button>
+                <button onclick="filterPackages('subject')" class="pkg-tab bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold border transition" id="tab-subject">বিষয়ভিত্তিক সেট (৩টি)</button>
+                <button onclick="filterPackages('madrasa')" class="pkg-tab bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold border transition" id="tab-madrasa">মাদরাসা বাল্ক অর্ডার</button>
+            </div>
+
+            <!-- Packages Grid -->
+            <div id="packages-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- ================= DEMO PDF SECTION ================= -->
+    <section id="demo" class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="hero-bg rounded-2xl p-8 md:p-12 text-white shadow-xl">
+            <div class="max-w-3xl mb-8">
+                <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">মান যাচাই করুন</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-3">বই কেনার আগে ফ্রি ডেমো পিডিএফ দেখুন</h2>
+                <p class="text-slate-200 mt-2 text-sm md:text-base">
+                    বইয়ের ছাপা, সহজ ভাষা, চার্ট ও উপস্থাপনা নিজের চোখে দেখে সিদ্ধান্ত নিন। নিচে প্রতিটি বিষয়ের ১টি করে অধ্যায়ের ডেমো পিডিএফ দেওয়া হলো:
+                </p>
+            </div>
+            <div id="demo-grid" class="grid md:grid-cols-2 gap-4"></div>
+        </div>
+    </section>
+
+    <!-- ================= MADRASA SAMPLE BOOK REQUEST FORM ================= -->
+    <section id="sample-form" class="py-16 px-4 bg-amber-50/60 border-t border-amber-200">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-6 space-y-4">
+                <span class="bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">মাদরাসা পরিচালক ও মুহতামিমদের জন্য</span>
+                <h2 class="text-3xl font-bold text-slate-900">আপনার মাদরাসার জন্য "নমুনা বই" সংগ্রহ করুন</h2>
+                <p class="text-slate-700 leading-relaxed">
+                    আপনার হিফজ বিভাগে এই কারিকুলাম যুক্ত করলে অভিভাবকদের আস্থা ও নতুন শিক্ষার্থী ভর্তি বৃদ্ধি পাবে। সিদ্ধান্ত নেওয়ার সুবিধার্থে আমরা <strong>১ম বর্ষের পূর্ণ সেট নমুনা হিসেবে</strong> পাঠাচ্ছি (শুধু কুরিয়ার চার্জ মাদরাসা বহন করবে)।
+                </p>
+                <div class="bg-white p-4 rounded-xl border border-amber-200 space-y-2 text-sm">
+                    <p>✅ <strong>পাইকারি ছাড়:</strong> মাদরাসার বাল্ক অর্ডারে বিশেষ পাইকারি মূল্য।</p>
+                    <p>✅ <strong>ফ্রি শিক্ষক ওরিয়েন্টেশন:</strong> প্রতি মাসে জুম/ফেসবুক লাইভে "২০ মিনিটে জেনারেল বিষয় পড়ানোর কৌশল" বিষয়ে শিক্ষকদের ফ্রি প্রশিক্ষণ।</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-6 bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-slate-200">
+                <h3 class="text-xl font-bold text-brand mb-4">নমুনা বই চাই ফর্ম</h3>
+                <form onsubmit="submitSampleRequest(event)" class="space-y-4 text-sm">
+                    <div>
+                        <label class="block font-semibold mb-1">মাদরাসার নাম *</label>
+                        <input type="text" id="m-name" required placeholder="আপনার মাদরাসার নাম লিখুন" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold mb-1">পরিচালক/মুহতামিমের নাম *</label>
+                            <input type="text" id="m-director" required placeholder="আপনার নাম" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">হিফজ শিক্ষার্থীর সংখ্যা *</label>
+                            <input type="number" id="m-students" required placeholder="যেমন: ৫০" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">মোবাইল নম্বর (হোয়াটসঅ্যাপ) *</label>
+                        <input type="tel" id="m-phone" required placeholder="01XXXXXXXXX" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">মাদরাসার পূর্ণ ঠিকানা (কুরিয়ারের জন্য) *</label>
+                        <textarea id="m-address" required rows="2" placeholder="গ্রাম/সড়ক, থানা, জেলা" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand hover:bg-blue-800 text-white font-bold py-3 rounded-xl shadow transition">
+                        📲 হোয়াটসঅ্যাপে নমুনা বইয়ের আবেদন পাঠান
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FAQ SECTION ================= -->
+    <section id="faq" class="py-16 px-4 max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-slate-900">সাধারণ জিজ্ঞাসা ও উত্তর (FAQ)</h2>
+            <p class="text-slate-600 mt-2">অভিভাবক ও মাদরাসা পরিচালকদের সচরাচর জিজ্ঞাসিত প্রশ্নসমূহ</p>
+        </div>
+
+        <div class="space-y-4">
+            <details class="bg-white p-5 rounded-xl border border-slate-200 group" open>
+                <summary class="font-bold text-lg cursor-pointer text-brand flex justify-between items-center">
+                    ১. এই বইগুলো পড়লে কি সন্তানের হিফজের কোনো ক্ষতি হবে?
+                    <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p class="text-slate-600 mt-3 text-sm leading-relaxed">
+                    না। হিফজই শিক্ষার্থীর মূল কাজ এবং দিনের বেশিরভাগ সময় হিফজেই থাকবে। বইগুলো এমনভাবে ছোট ও গোছানো আকারে লেখা যে প্রতি বিষয়ের একটি পাঠ দৈনিক মাত্র ২০ মিনিটেই শেষ হয়ে যায়।
+                </p>
+            </details>
+
+            <details class="bg-white p-5 rounded-xl border border-slate-200 group">
+                <summary class="font-bold text-lg cursor-pointer text-brand flex justify-between items-center">
+                    ২. সব বই কি একসাথে কিনতে হবে?
+                    <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p class="text-slate-600 mt-3 text-sm leading-relaxed">
+                    একেবারেই না। আপনার সন্তান নাজেরা বা হিফজের যে বর্ষে আছে, শুধু সেই বর্ষের সেটটি নিলেই পুরো এক বছর চলবে। চাইলে শুধু একটি বিষয়ের সেট দিয়েও শুরু করতে পারেন।
+                </p>
+            </details>
+
+            <details class="bg-white p-5 rounded-xl border border-slate-200 group">
+                <summary class="font-bold text-lg cursor-pointer text-brand flex justify-between items-center">
+                    ৩. আমার সন্তানের মাদরাসায় তো এই বই পড়ানো হয় না, তাহলে কীভাবে পড়াবে?
+                    <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p class="text-slate-600 mt-3 text-sm leading-relaxed">
+                    বাসায় বা ছুটির সময়ে প্রতিদিন ২০ মিনিট করে অভিভাবকরাই পড়াতে পারেন। এছাড়া আপনি সন্তানের মাদরাসাকে আমাদের "নমুনা সেট"-এর কথা জানাতে পারেন, আমরা তাঁদের সাথে যোগাযোগ করব।
+                </p>
+            </details>
+
+            <details class="bg-white p-5 rounded-xl border border-slate-200 group">
+                <summary class="font-bold text-lg cursor-pointer text-brand flex justify-between items-center">
+                    ৪. কীভাবে অর্ডার দেব এবং টাকা পরিশোধের নিয়ম কী?
+                    <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p class="text-slate-600 mt-3 text-sm leading-relaxed">
+                    ওয়েবসাইটের যেকোনো প্যাকেজের নিচে "অর্ডার করুন" বাটনে ক্লিক করলে সরাসরি আমাদের হোয়াটসঅ্যাপে যুক্ত হবেন। বিকাশ, নগদ অথবা বই হাতে পেয়ে ক্যাশ অন ডেলিভারিতে (Cash on Delivery) মূল্য পরিশোধ করতে পারবেন।
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-brandDark text-slate-300 py-12 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold text-white mb-2">বায়তুল ফালাহ প্রকাশনী</h3>
+                <p class="text-sm text-slate-400 mb-4">ভিশন: আদর্শ শিক্ষা ব্যবস্থার মাধ্যমে আদর্শ মানুষ গড়া।</p>
+                <p class="text-xs text-slate-500">সারা বাংলাদেশে কুরিয়ারের মাধ্যমে খুচরা ও পাইকারি বই সরবরাহ করা হয়।</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-3">দ্রুত লিংক</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#packages" class="hover:text-white">১০টি প্যাকেজ ও মূল্য</a></li>
+                    <li><a href="#demo" class="hover:text-white">ফ্রি ডেমো পিডিএফ</a></li>
+                    <li><a href="#sample-form" class="hover:text-white">মাদরাসার জন্য নমুনা বই</a></li>
+                    <li><a href="#faq" class="hover:text-white">প্রশ্নোত্তর</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-3">যোগাযোগ ও অর্ডার</h4>
+                <p class="text-sm mb-2">📞 হেল্পলাইন: <span id="footer-phone"></span></p>
+                <p class="text-sm mb-4">📦 ক্যাশ অন ডেলিভারি সুবিধা রয়েছে।</p>
+                <a id="footer-wa" href="#" target="_blank" class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                    💬 হোয়াটসঅ্যাপে মেসেজ দিন
+                </a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-slate-800 mt-8 pt-6 text-center text-xs text-slate-500">
+            © ২০২৬ বায়তুল ফালাহ প্রকাশনী • সর্বস্বত্ব সংরক্ষিত।
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        function renderPackages(filter = 'all') {
+            const grid = document.getElementById('packages-grid');
+            const filtered = filter === 'all' ? CONFIG.packages : CONFIG.packages.filter(p => p.category === filter);
+            
+            grid.innerHTML = filtered.map(pkg => {
+                const waText = encodeURIComponent(`আসসালামু আলাইকুম। আমি বায়তুল ফালাহ প্রকাশনীর "${pkg.title}" প্যাকেজটি অর্ডার করতে বা বিস্তারিত জানতে চাই।`);
+                const waLink = `https://wa.me/${CONFIG.whatsappNumber}?text=${waText}`;
+                
+                return `
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="bg-blue-100 text-brand text-xs font-bold px-3 py-1 rounded-full">${pkg.badge}</span>
+                            <span class="text-xs text-slate-500 font-medium">🎯 ${pkg.target}</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">${pkg.title}</h3>
+                        <p class="text-sm text-slate-600 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong>অন্তর্ভুক্ত বই:</strong> ${pkg.books}
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center py-3 border-t border-slate-100 text-sm mb-4">
+                            <div>
+                                <span class="text-slate-500 block text-xs">খুচরা মূল্য</span>
+                                <strong class="text-brand text-base">${pkg.retailPrice}</strong>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-slate-500 block text-xs">মাদরাসা/পাইকারি</span>
+                                <strong class="text-accent text-xs">${pkg.wholesalePrice}</strong>
+                            </div>
+                        </div>
+                        <a href="${waLink}" target="_blank" class="block w-full text-center bg-brand hover:bg-blue-800 text-white font-bold py-2.5 rounded-xl transition">
+                            🛒 হোয়াটসঅ্যাপে অর্ডার করুন
+                        </a>
+                        <a href="${CONFIG.orderFormUrl}" target="_blank" class="block w-full text-center mt-2 border border-brand text-brand hover:bg-blue-50 font-semibold py-2 rounded-xl transition text-sm">
+                            📝 অর্ডার ফর্মে অর্ডার করুন
+                        </a>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function filterPackages(cat) {
+            document.querySelectorAll('.pkg-tab').forEach(btn => {
+                btn.className = "pkg-tab bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold border transition";
+            });
+            document.getElementById('tab-' + cat).className = "pkg-tab bg-brand text-white px-4 py-2 rounded-lg text-sm font-semibold transition";
+            renderPackages(cat);
+        }
+
+        function renderDemos() {
+            const demoGrid = document.getElementById('demo-grid');
+            demoGrid.innerHTML = CONFIG.demos.map(d => {
+                const waDemoText = encodeURIComponent(`আসসালামু আলাইকুম। আমাকে বায়তুল ফালাহ প্রকাশনীর "${d.subject}"-এর ডেমো পিডিএফ পাঠাবেন।`);
+                const waLink = d.pdfUrl.startsWith('#') ? `https://wa.me/${CONFIG.whatsappNumber}?text=${waDemoText}` : d.pdfUrl;
+                return `
+                <div class="bg-white/10 border border-white/20 p-4 rounded-xl flex justify-between items-center gap-4">
+                    <div>
+                        <h4 class="font-bold text-white text-base">${d.subject}</h4>
+                        <p class="text-xs text-slate-200 mt-0.5">${d.desc}</p>
+                    </div>
+                    <a href="${waLink}" target="_blank" class="shrink-0 bg-accent hover:bg-amber-500 text-white px-4 py-2 rounded-lg text-xs font-bold transition">
+                        📄 পিডিএফ নিন
+                    </a>
+                </div>`;
+            }).join('');
+        }
+
+        function submitSampleRequest(e) {
+            e.preventDefault();
+            const name = document.getElementById('m-name').value;
+            const director = document.getElementById('m-director').value;
+            const students = document.getElementById('m-students').value;
+            const phone = document.getElementById('m-phone').value;
+            const address = document.getElementById('m-address').value;
+
+            const msg = `আসসালামু আলাইকুম। আমি আমার মাদরাসার জন্য বায়তুল ফালাহ প্রকাশনীর ১ম বর্ষের "নমুনা সেট" নিতে আগ্রহী।\n\n📌 মাদরাসার নাম: ${name}\n👤 পরিচালক/মুহতামিম: ${director}\n👨‍🎓 হিফজ শিক্ষার্থী সংখ্যা: ${students} জন\n📞 মোবাইল: ${phone}\n📍 কুরিয়ার ঠিকানা: ${address}`;
+            
+            window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // ===== বইয়ের তালিকা: ব্যবস্থাপনা শিট থেকে (পাবলিক ফাইলের মাধ্যমে) =====
+        const toBn = n => String(n).replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+        const esc = s => String(s).replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+        const SERIES_ICONS = ['📘', '🕌', '🗣️', '🔤', '⚙️', '📖', '📗', '📙'];
+
+        function loadBooks() {
+            const cb = 'bfBooks' + Date.now();
+            const s = document.createElement('script');
+            const timer = setTimeout(booksFailed, 15000);
+            window[cb] = data => {
+                clearTimeout(timer);
+                try { renderSeries(parseBooks(data)); } catch (e) { booksFailed(); }
+                delete window[cb];
+                s.remove();
+            };
+            s.onerror = () => { clearTimeout(timer); booksFailed(); };
+            s.src = `https://docs.google.com/spreadsheets/d/${CONFIG.booksSheetId}/gviz/tq?sheet=books&headers=1&tqx=responseHandler:${cb}`;
+            document.body.appendChild(s);
+        }
+
+        function parseBooks(data) {
+            const rows = (data && data.table && data.table.rows) || [];
+            const val = (r, i) => (r.c && r.c[i] && r.c[i].v != null) ? String(r.c[i].v).trim() : '';
+            const order = [], map = {};
+            rows.forEach(r => {
+                const series = val(r, 0), name = val(r, 1), price = val(r, 2), desc = val(r, 3);
+                if (!series || !name || series === 'সিরিজ') return;
+                if (!map[series]) { map[series] = { title: series, desc: '', books: [] }; order.push(series); }
+                if (desc && !map[series].desc) map[series].desc = desc;
+                map[series].books.push({ name, price });
+            });
+            return order.map(k => map[k]);
+        }
+
+        function renderSeries(list) {
+            if (!list.length) return booksFailed();
+            const total = list.reduce((n, s) => n + s.books.length, 0);
+            document.getElementById('series-count').innerText = toBn(list.length) + 'টি';
+            document.getElementById('hero-total').innerText = '✅ মোট ' + toBn(total) + 'টি বই';
+            document.getElementById('series').innerHTML = list.map((s, i) => `
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <div class="flex justify-between items-start mb-3">
+                    <span class="bg-blue-100 text-brand text-xs font-bold px-3 py-1 rounded-full">${toBn(s.books.length)}টি বই</span>
+                    <span class="text-2xl">${SERIES_ICONS[i % SERIES_ICONS.length]}</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900">${esc(s.title)}</h3>
+                ${s.desc ? `<p class="text-sm text-slate-600 mt-2">${esc(s.desc)}</p>` : ''}
+                <ul class="mt-3 text-sm text-slate-700 space-y-1 border-t border-slate-100 pt-3">
+                    ${s.books.map(b => `<li class="flex justify-between gap-2"><span>📗 ${esc(b.name)}</span>${b.price !== '' && !isNaN(b.price) ? `<span class="text-brand font-semibold whitespace-nowrap">৳${toBn(Number(b.price).toLocaleString('en-US'))}</span>` : ''}</li>`).join('')}
+                </ul>
+            </div>`).join('');
+        }
+
+        function booksFailed() {
+            const el = document.getElementById('series-loading');
+            if (el) el.innerHTML = `বইয়ের তালিকা এই মুহূর্তে দেখানো যাচ্ছে না। <a class="text-brand underline" href="${CONFIG.orderFormUrl}" target="_blank">অর্ডার ফর্মে</a> সব বইয়ের তালিকা দেখুন, অথবা হোয়াটসঅ্যাপে জিজ্ঞেস করুন।`;
+        }
+
+        // Init
+        document.getElementById('top-phone').innerText = CONFIG.phoneDisplay;
+        document.getElementById('footer-phone').innerText = CONFIG.phoneDisplay;
+        document.getElementById('footer-wa').href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent('আসসালামু আলাইকুম। বায়তুল ফালাহ প্রকাশনীর বই সম্পর্কে জানতে চাই।')}`;
+        document.getElementById('header-order').href = CONFIG.orderFormUrl;
+        renderPackages();
+        renderDemos();
+        loadBooks();
+    </script>
+</body>
+</html>
